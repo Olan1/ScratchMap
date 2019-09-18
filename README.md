@@ -6,7 +6,7 @@ This project is a digital scratchmap...
 
 ### Demo
 
-Click [here](#) for a live demo.
+Click [here](https://olan1.github.io/scratchmap-project-2/) for a live demo.
 
 ### UX
 
