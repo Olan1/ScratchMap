@@ -8,11 +8,6 @@ body {
     color: #fafaf9;
 }
 
-.container-fluid {
-    padding-right: 0;
-    padding-left: 0;
-}
-
 /******************** Navbar ********************/
 
 .fa-globe {
@@ -20,6 +15,10 @@ body {
 }
 
 /******************** Map ********************/
+
+#map {
+    height:75vh;
+}
 
 /******************** Board ********************/
 
