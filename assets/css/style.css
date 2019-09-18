@@ -1,0 +1,15 @@
+/******************** General ********************/
+
+body {
+    background-color: #fafaf9;
+}
+
+.offWhite {
+    color: #fafaf9;
+}
+
+/******************** Navbar ********************/
+
+.fa-globe {
+    font-size: 4rem;
+}
