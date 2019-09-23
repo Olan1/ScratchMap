@@ -4,8 +4,12 @@ body {
     background-color: #fafaf9;
 }
 
-.offWhite {
-    color: #fafaf9;
+.textGold {
+    color: rgb(197, 179, 88);
+}
+
+.col-12 {
+    padding: 0;
 }
 
 /******************** Navbar ********************/
@@ -17,7 +21,89 @@ body {
 /******************** Map ********************/
 
 #map {
-    height:75vh;
+    height: 75vh;
+}
+
+.closeModal {
+    cursor: pointer;
+}
+
+.jvectormap-container {
+    background-color: #fff;
+}
+
+/********** Map Modal **********/
+
+#myModal {
+    background-color: rgba(52, 58, 64, 0.5);
+}
+
+.modal-content {
+    max-width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(250, 250, 249, 0.1);
+    border-radius: 1rem;
+}
+
+.mapModalButton {
+    height: 60px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid rgba(250, 250, 249, 0.5);
+    margin: 10px auto;
+    border-radius: 1rem;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.mapModalButton:hover,
+.mapModalButton:focus {
+    opacity: 0.8;
+    outline: 0;
+}
+
+.closeModal {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 10px;
+    color: rgba(250, 250, 249, 1);
+    width: 30px;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.closeModal:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+#visited {
+    background-color: #3bd80d;
+}
+
+#not-visited {
+    background-color: rgb(197, 179, 88);
+}
+
+#plan-to-visit {
+    background-color: #1cb2ed;
+}
+
+#will-not-visit {
+    background-color: #fe0000;
+}
+
+#closeBtn {
+    background-color: rgba(250, 250, 249, 1);
 }
 
 /******************** Board ********************/
@@ -28,4 +114,8 @@ body {
 
 #footer {
     color: #fafaf9;
+}
+
+.fa-copyright {
+    padding-top: 10px;
 }

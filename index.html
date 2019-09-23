@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="assets/images/globe.png">
+    <link rel="shortcut icon" href="assets/images/map.png">
 
     <!-- jVectorMap -->
     <link rel="stylesheet" href="assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
@@ -24,11 +24,11 @@
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">
-            <h3 class="offWhite">ScratchMap</h3>
-            <h6 class="offWhite">by SlapDash</h6>
+            <h3 class="textGold">ScratchMap</h3>
+            <h6 class="textGold">by SlapDash</h6>
         </a>
         <a class="navbar-brand" href="index.html">
-            <i class="fa fa-globe offWhite" aria-hidden="true"></i>
+            <i class="fa fa-globe textGold" aria-hidden="true"></i>
         </a>
     </nav>
     <!-- /Navbar -->
@@ -36,7 +36,30 @@
     <div class="container-fluid">
         <!-- Map -->
         <div class="row">
-            <div id="map" class="col-12"></div>
+            <div id="map" class="col-12">
+
+                <!-- Map Modal -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="closeModal">&times;</span>
+                        <button id="visited" class="mapModalButton">
+                            Visited
+                        </button>
+                        <button id="not-visited" class="mapModalButton">
+                            Not Visited
+                        </button>
+                        <button id="plan-to-visit" class="mapModalButton">
+                            Will Visit
+                        </button>
+                        <button id="will-not-visit" class="mapModalButton">
+                            Will Not Visit
+                        </button>
+                        <button id="closeBtn" class="mapModalButton">Close</button>
+                    </div>
+                </div>
+                <!-- /Map Modal -->
+
+            </div>
         </div>
         <!-- /Map -->
 
@@ -63,8 +86,8 @@
         <!-- Footer -->
         <footer id="footer" class="bg-dark row text-center">
             <div class="col-12">
-                <i class="fa fa-copyright" aria-hidden="true"></i>
-                <p>SlapDash 2019</p>
+                <i class="fa fa-copyright textGold" aria-hidden="true"></i>
+                <p class="textGold">SlapDash 2019</p>
             </div>
         </footer>
         <!-- /Footer -->
