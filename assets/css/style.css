@@ -86,8 +86,16 @@ body {
     opacity: 0.8;
 }
 
+#home {
+    background-color: #6eca29;
+}
+
+#resided {
+    background-color: #29c290;
+}
+
 #visited {
-    background-color: #3bd80d;
+    background-color: #1fb0ea;
 }
 
 #not-visited {
@@ -95,11 +103,11 @@ body {
 }
 
 #plan-to-visit {
-    background-color: #1cb2ed;
+    background-color: #707095;
 }
 
 #will-not-visit {
-    background-color: #fe0000;
+    background-color: #a7445b;
 }
 
 #closeBtn {

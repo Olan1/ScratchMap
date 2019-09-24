@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="assets/js/jquery-jvectormap-world-mill.js"></script>
 
+    <script src="assets/js/jquery-jvectormap-world-mill.js"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>ScratchMap</title>
@@ -35,13 +35,19 @@
 
     <div class="container-fluid">
         <!-- Map -->
-        <div class="row">
+        <div id="mapParent" class="row">
             <div id="map" class="col-12">
 
                 <!-- Map Modal -->
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="closeModal">&times;</span>
+                        <button id="home" class="mapModalButton">
+                            Home Country
+                        </button>
+                        <button id="resided" class="mapModalButton">
+                            Lived In
+                        </button>
                         <button id="visited" class="mapModalButton">
                             Visited
                         </button>
@@ -49,7 +55,7 @@
                             Not Visited
                         </button>
                         <button id="plan-to-visit" class="mapModalButton">
-                            Will Visit
+                            Want To Visit
                         </button>
                         <button id="will-not-visit" class="mapModalButton">
                             Will Not Visit
