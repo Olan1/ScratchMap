@@ -2,10 +2,16 @@
 
 body {
     background-color: #fafaf9;
+    color: rgb(197, 179, 88);
+    
 }
 
 .textGold {
     color: rgb(197, 179, 88);
+}
+
+hr {
+    background-color: rgb(197, 179, 88);
 }
 
 .col-12 {
@@ -22,6 +28,8 @@ body {
 
 #map {
     height: 75vh;
+    max-width: 90vw;
+    margin: auto;
 }
 
 .closeModal {
@@ -86,33 +94,53 @@ body {
     opacity: 0.8;
 }
 
-#home {
+#home,
+.home {
     background-color: #6eca29;
 }
 
-#resided {
+#resided,
+.resided {
     background-color: #29c290;
 }
 
-#visited {
+#visited,
+.visited {
     background-color: #1fb0ea;
 }
 
-#not-visited {
+#not-visited,
+.notVisited {
     background-color: rgb(197, 179, 88);
 }
 
-#plan-to-visit {
+#plan-to-visit,
+.wantToVisit {
     background-color: #707095;
 }
 
-#will-not-visit {
+#will-not-visit,
+.willNotVisit {
     background-color: #a7445b;
 }
 
 #closeBtn {
     background-color: rgba(250, 250, 249, 1);
 }
+
+/******************** Legend ********************/
+
+.legendIcon {
+    margin-top: 10px;
+}
+
+.colorBlock {
+    height: 20px;
+    width: 20px;
+    border: 1.5px solid rgba(250, 250, 249, 0.5);
+    border-radius: 0.25rem;
+}
+
 
 /******************** Board ********************/
 

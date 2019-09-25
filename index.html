@@ -20,9 +20,9 @@
     <title>ScratchMap</title>
 </head>
 
-<body>
+<body class="bg-dark">
     <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark">
         <a class="navbar-brand" href="index.html">
             <h3 class="textGold">ScratchMap</h3>
             <h6 class="textGold">by SlapDash</h6>
@@ -66,6 +66,38 @@
                 <!-- /Map Modal -->
 
             </div>
+
+            <!-- Legend -->
+            <div class="mapLegend col-12">
+                <div class="row text-center">
+                    <div id="legendHome" class="legendIcon col-6 col-sm-4 col-md-2">
+                        <h6>Home</h6>
+                        <div class="colorBlock m-auto home"></div>
+                    </div>
+                    <div id="legendResided" class="legendIcon col-6 col-sm-4 col-md-2">
+                        <h6>Lived In</h6>
+                        <div class="colorBlock m-auto resided"></div>
+                    </div>
+                    <div id="legendVisited" class="legendIcon col-6 col-sm-4 col-md-2">
+                        <h6>Visited</h6>
+                        <div class="colorBlock m-auto visited"></div>
+                    </div>
+                    <div id="legendNotVisited" class="legendIcon col-6 col-sm-4 col-md-2">
+                        <h6>Not Visited</h6>
+                        <div class="colorBlock m-auto notVisited"></div>
+                    </div>
+                    <div id="legendWantVisit" class="legendIcon col-6 col-sm-4 col-md-2">
+                        <h6>Want To Visit</h6>
+                        <div class="colorBlock m-auto wantToVisit"></div>
+                    </div>
+                    <div id="legendWillNotVisit" class="legendIcon col-6 col-sm-4 col-md-2">
+                        <h6>Will Not Visit</h6>
+                        <div class="colorBlock m-auto willNotVisit"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Legend -->
+
         </div>
         <!-- /Map -->
 
@@ -89,8 +121,10 @@
         </div>
         <!-- /Charts -->
 
+        <hr>
+
         <!-- Footer -->
-        <footer id="footer" class="bg-dark row text-center">
+        <footer id="footer" class="row text-center">
             <div class="col-12">
                 <i class="fa fa-copyright textGold" aria-hidden="true"></i>
                 <p class="textGold">SlapDash 2019</p>

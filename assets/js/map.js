@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    
     $.getJSON('assets/data/data.json', function(data) { // Source: http://jvectormap.com/examples/france-elections/
         var colorData = data.data;
+
 
         $(function() {
             // Call draw map function
             map(colorData);
-
             // Draw map function
             function map(data) {
                 $('#map').vectorMap({
@@ -47,7 +46,7 @@ $(document).ready(function() {
                         closeModal();
                     }
                 });
-                
+
                 // Call modal button click events function
                 modalBtnClick(regionCode);
             }
@@ -60,32 +59,37 @@ $(document).ready(function() {
             // Modal button click events
             function modalBtnClick(regionCode) {
                 $('#home').off('click').on('click', function() {
-                    colorData[regionCode] = 2.5;
+                    Object.keys(colorData).forEach(function(item) { // Source: https://gomakethings.com/the-es6-way-to-loop-through-objects-with-vanilla-javascript/
+                        if (colorData[item] == 2.5) {
+                            colorData[item] = 1; // Gold
+                        }
+                    });
+                    colorData[regionCode] = 2.5; // Green
                     redrawMap();
                 });
 
                 $('#resided').off('click').on('click', function() {
-                    colorData[regionCode] = 10;
+                    colorData[regionCode] = 10; // Turquoise
                     redrawMap();
                 });
 
                 $('#visited').off('click').on('click', function() {
-                    colorData[regionCode] = 18;
+                    colorData[regionCode] = 18; // Blue
                     redrawMap();
                 });
 
                 $('#not-visited').off('click').on('click', function() {
-                    colorData[regionCode] = 1;
+                    colorData[regionCode] = 1; //Gold
                     redrawMap();
                 });
 
                 $('#plan-to-visit').off('click').on('click', function() {
-                    colorData[regionCode] = 36;
+                    colorData[regionCode] = 36; // Purple
                     redrawMap();
                 });
 
                 $('#will-not-visit').off('click').on('click', function() {
-                    colorData[regionCode] = 55;
+                    colorData[regionCode] = 55; // Red
                     redrawMap();
                 });
             }
