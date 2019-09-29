@@ -42,6 +42,7 @@
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="closeModal">&times;</span>
+                        <h1 id="modalHeader"></h1>
                         <button id="home" class="mapModalButton">
                             Home Country
                         </button>
@@ -69,29 +70,29 @@
 
             <!-- Legend -->
             <div class="mapLegend col-12">
-                <div class="row text-center">
-                    <div id="legendHome" class="legendIcon col-6 col-sm-4 col-md-2">
+                <div class="row text-center no-gutters">
+                    <div id="legendHome" class="legendIcon col-4 col-md-2">
                         <h6>Home</h6>
                         <div class="colorBlock m-auto home"></div>
                     </div>
-                    <div id="legendResided" class="legendIcon col-6 col-sm-4 col-md-2">
+                    <div id="legendResided" class="legendIcon col-4 col-md-2">
                         <h6>Lived In</h6>
                         <div class="colorBlock m-auto resided"></div>
                     </div>
-                    <div id="legendVisited" class="legendIcon col-6 col-sm-4 col-md-2">
+                    <div id="legendVisited" class="legendIcon col-4 col-md-2">
                         <h6>Visited</h6>
                         <div class="colorBlock m-auto visited"></div>
                     </div>
-                    <div id="legendNotVisited" class="legendIcon col-6 col-sm-4 col-md-2">
+                    <div id="legendNotVisited" class="legendIcon col-4 col-md-2">
                         <h6>Not Visited</h6>
                         <div class="colorBlock m-auto notVisited"></div>
                     </div>
-                    <div id="legendWantVisit" class="legendIcon col-6 col-sm-4 col-md-2">
-                        <h6>Want To Visit</h6>
+                    <div id="legendWantVisit" class="legendIcon col-4 col-md-2">
+                        <h6>Will Visit</h6>
                         <div class="colorBlock m-auto wantToVisit"></div>
                     </div>
-                    <div id="legendWillNotVisit" class="legendIcon col-6 col-sm-4 col-md-2">
-                        <h6>Will Not Visit</h6>
+                    <div id="legendWillNotVisit" class="legendIcon col-4 col-md-2">
+                        <h6>Won't Visit</h6>
                         <div class="colorBlock m-auto willNotVisit"></div>
                     </div>
                 </div>
@@ -106,7 +107,45 @@
         <!-- Board -->
         <div class="row">
             <div id="board" class="col-12">
-                <h1>Board</h1>
+                <div class="row no-gutters justify-content-center mr-5">
+                    <div class="col-12 d-flex justify-content-center board" id="homeBoard">
+                        <ul>
+                            <lh>
+                                <h5>Home</h5>
+                            </lh>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row no-gutters mr-5">
+                    <div class="col-6 col-sm-3 d-flex justify-content-center board" id="livedInBoard">
+                        <ul>
+                            <lh>
+                                <h5>Lived In</h5>
+                            </lh>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-sm-3 d-flex justify-content-center board" id="visitedBoard">
+                        <ul>
+                            <lh>
+                                <h5>Visited</h5>
+                            </lh>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-sm-3 d-flex justify-content-center board" id="wantToVisitBoard">
+                        <ul>
+                            <lh>
+                                <h5>Will Visit</h5>
+                            </lh>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-sm-3 d-flex justify-content-center board" id="willNotVisitBoard">
+                        <ul>
+                            <lh>
+                                <h5>Won't Visit</h5>
+                            </lh>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /Board -->
