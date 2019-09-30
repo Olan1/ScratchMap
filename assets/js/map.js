@@ -5,8 +5,11 @@ $(document).ready(function() {
         // Assign color values
         var colorData = data.data.color;
 
-        // Call draw map function
+        // Draw map
         map(colorData);
+
+        // Draw bar chart
+        charting(colorData);
 
         // Draw map function
         function map(data) {
@@ -73,41 +76,48 @@ $(document).ready(function() {
                 boardBubble('#home', '#homeBoard', regionName, 'home', regionCode);
                 colorData[regionCode] = 2.5; // Green
                 redrawMap();
+                charting(colorData);
             });
 
             $('#resided').off('click').on('click', function() {
                 boardBubble('#resided', '#livedInBoard', regionName, 'resided', regionCode);
                 colorData[regionCode] = 10; // Turquoise
                 redrawMap();
+                charting(colorData);
             });
 
             $('#visited').off('click').on('click', function() {
                 boardBubble('#visited', '#visitedBoard', regionName, 'visited', regionCode);
                 colorData[regionCode] = 18; // Blue
                 redrawMap();
+                charting(colorData);
             });
 
             $('#not-visited').off('click').on('click', function() {
                 boardBubble('#not-visited', 'targetBoard', regionName, 'colorClass', regionCode);
                 colorData[regionCode] = 1; //Gold
                 redrawMap();
+                charting(colorData);
             });
 
             $('#plan-to-visit').off('click').on('click', function() {
                 boardBubble('#plan-to-visit', '#wantToVisitBoard', regionName, 'wantToVisit', regionCode);
                 colorData[regionCode] = 36; // Purple
                 redrawMap();
+                charting(colorData);
             });
 
             $('#will-not-visit').off('click').on('click', function() {
                 boardBubble('#will-not-visit', '#willNotVisitBoard', regionName, 'willNotVisit', regionCode);
                 colorData[regionCode] = 55; // Red
                 redrawMap();
+                charting(colorData);
             });
 
             $('#resetBtn').off('click').on('click', function() {
                 reset();
                 redrawMap();
+                charting(colorData);
             });
         }
 
@@ -145,6 +155,110 @@ $(document).ready(function() {
             });
             colorData["UNDEFINED"] = 100;
             $("li").remove();
+        }
+
+        // Charting function
+        function charting(colorData) {
+            let values = Object.keys(colorData);
+            var home = 0;
+            var notVisited = 0;
+            var visited = 0;
+            var resided = 0;
+            var willVisit = 0;
+            var willNotVisit = 0;
+
+            var regionValues = values.map(value => {
+                if (colorData[value] == 100) {
+                    var undef = 100;
+                }
+                else if (colorData[value] == 1) {
+                    notVisited += 1;
+                }
+                else if (colorData[value] == 2.5) {
+                    home += 1;
+                }
+                else if (colorData[value] == 10) {
+                    resided += 1;
+                }
+                else if (colorData[value] == 18) {
+                    visited += 1;
+                }
+                else if (colorData[value] == 36) {
+                    willVisit += 1;
+                }
+                else if (colorData[value] == 55) {
+                    willNotVisit += 1;
+                }
+                var allCountryStatus = [
+                    { "chart1": "Not Visited", "value": (notVisited / 195) * 100 },
+                    { "chart1": "Resided", "value": (resided / 195) * 100 },
+                    { "chart1": "Visited", "value": (visited / 195) * 100 },
+                    { "chart1": "Will Visit", "value": (willVisit / 195) * 100 },
+                    { "chart1": "Won't Visit", "value": (willNotVisit / 195) * 100 },
+                ];
+
+                var beenNotStatus = [
+                    { "chart2": "Been", "value": ((resided + visited + home) / 195) * 100 },
+                    { "chart2": "Not Been", "value": ((notVisited + willVisit + willNotVisit) / 195) * 100 }
+                ];
+
+                var wantNotStatus = [
+                    { "chart3": "Been", "value": ((resided + visited + home) / 195) * 100 },
+                    { "chart3": "Will Visit", "value": ((notVisited + willVisit - willNotVisit) / 195) * 100 }
+                ];
+
+                return [allCountryStatus, beenNotStatus, wantNotStatus];
+            });
+
+            var ndx1 = crossfilter(regionValues[194][0]);
+            var ndx2 = crossfilter(regionValues[194][1]);
+            var ndx3 = crossfilter(regionValues[194][2]);
+
+            var allColors = d3.scale.ordinal() /*Map domain values to range values*/
+                .domain(["Not Visited", "Resided", "Visited", "Will Visit", "Won't Visit"])
+                .range(["#c5b358", "#29c290", "#1fb0ea", "#707095", "#a7445b"]);
+
+            var beenNotColors = d3.scale.ordinal() /*Map domain values to range values*/
+                .domain(["Been", "Not Been"])
+                .range(["#1fb0ea", "#c5b358"]);
+
+            var wantNotColors = d3.scale.ordinal() /*Map domain values to range values*/
+                .domain(["Been", "Will Visit"])
+                .range(["#1fb0ea", "#707095"]);
+
+            // Chart 1
+            chart(ndx1, 'chart1', 'value', allColors, '#allBarChart');
+
+            // Chart 2
+            chart(ndx2, 'chart2', 'value', allColors, '#been-not-barChart');
+
+            // Chart 3
+            chart(ndx3, 'chart3', 'value', allColors, '#want-not-barChart');
+
+            dc.renderAll();
+        }
+
+        // Chart function
+        function chart(ndx, chart, val, colors, targetDiv) {
+            var options_dim = ndx.dimension(dc.pluck(chart));
+            var status_dim = options_dim.group().reduceSum(dc.pluck(val));
+
+            dc.barChart(targetDiv)
+                .width(350)
+                .height(200)
+                .margins({ top: 10, right: 50, bottom: 30, left: 25 })
+                .dimension(options_dim)
+                .group(status_dim)
+                .transitionDuration(500)
+                .colorAccessor(function(d) {
+                    return d.key;
+                })
+                .colors(colors)
+                .x(d3.scale.ordinal())
+                .y(d3.scale.linear().domain([0, 100]))
+                .xUnits(dc.units.ordinal)
+                .yAxisLabel("%")
+                .yAxis().ticks(4);
         }
     });
 });

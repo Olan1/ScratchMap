@@ -189,4 +189,13 @@ ul {
 
 /******************** Charts ********************/
 
+.charts h5 {
+    text-align: center;
+    width: 75%;
+    margin: auto;
+    border-top: 1px solid rgb(197, 179, 88);
+    border-bottom: 1px solid rgb(197, 179, 88);
+    -webkit-text-stroke: 0.5px #343a40;
+}
+
 /******************** Footer ********************/

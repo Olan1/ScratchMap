@@ -13,8 +13,13 @@
     <link rel="stylesheet" href="assets/css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/jquery-jvectormap-2.0.3.min.js"></script>
-
     <script src="assets/js/jquery-jvectormap-world-mill.js"></script>
+
+    <!-- D3.js, Crossfilter.js & DC.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>ScratchMap</title>
@@ -47,7 +52,7 @@
                             Home
                         </button>
                         <button id="resided" class="mapModalButton">
-                            Lived In
+                            Resided
                         </button>
                         <button id="visited" class="mapModalButton">
                             Visited
@@ -72,13 +77,13 @@
             </div>
 
             <!-- Legend -->
-            <div class="mapLegend col-12">
+            <div class="mapLegend col-12 mt-4">
                 <div class="row text-center no-gutters">
                     <div id="legendHome" class="legendIcon col-4 col-md-2 home">
                         <h6>Home</h6>
                     </div>
                     <div id="legendResided" class="legendIcon col-4 col-md-2 resided">
-                        <h6>Lived In</h6>
+                        <h6>Resided</h6>
                     </div>
                     <div id="legendVisited" class="legendIcon col-4 col-md-2 visited">
                         <h6>Visited</h6>
@@ -99,10 +104,8 @@
         </div>
         <!-- /Map -->
 
-        <hr>
-
         <!-- Board -->
-        <div class="row mr-5">
+        <div class="row mr-5 mt-5">
             <div id="board" class="col-12">
                 <div class="row no-gutters justify-content-center">
                     <div class="col-12 d-flex justify-content-center board" id="homeBoard">
@@ -118,7 +121,7 @@
                     <div class="col-6 col-sm-3 d-flex justify-content-center board" id="livedInBoard">
                         <ul>
                             <lh>
-                                <h5 class="resided board-header borderDark py-2 font-weight-bold">Lived In</h5>
+                                <h5 class="resided board-header borderDark py-2 font-weight-bold">Resided</h5>
                             </lh>
                             <hr>
                         </ul>
@@ -152,12 +155,16 @@
         </div>
         <!-- /Board -->
 
-        <hr>
-
         <!-- Charts -->
-        <div class="row">
-            <div id="charts" class="col-12">
-                <h1>Charts</h1>
+        <div class="row no-gutters text-center textGold charts mt-5">
+            <div id="allBarChart" class="col-12 col-sm-6 col-md-4 text-center">
+                <h5>All Stats</h5>
+            </div>
+            <div id="been-not-barChart" class="col-12 col-sm-6 col-md-4 text-center">
+                <h5>Been vs Not Been</h5>
+            </div>
+            <div id="want-not-barChart" class="col-12 col-sm-6 col-md-4 text-center">
+                <h5>Been vs Will Visit</h5>
             </div>
         </div>
         <!-- /Charts -->
