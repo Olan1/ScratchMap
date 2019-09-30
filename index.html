@@ -44,7 +44,7 @@
                         <span class="closeModal">&times;</span>
                         <h1 id="modalHeader"></h1>
                         <button id="home" class="mapModalButton">
-                            Home Country
+                            Home
                         </button>
                         <button id="resided" class="mapModalButton">
                             Lived In
@@ -56,10 +56,13 @@
                             Not Visited
                         </button>
                         <button id="plan-to-visit" class="mapModalButton">
-                            Want To Visit
+                            Will Visit
                         </button>
                         <button id="will-not-visit" class="mapModalButton">
-                            Will Not Visit
+                            Won't Visit
+                        </button>
+                        <button id="resetBtn" class="mapModalButton">
+                            Reset Map
                         </button>
                         <button id="closeBtn" class="mapModalButton">Close</button>
                     </div>
@@ -71,29 +74,23 @@
             <!-- Legend -->
             <div class="mapLegend col-12">
                 <div class="row text-center no-gutters">
-                    <div id="legendHome" class="legendIcon col-4 col-md-2">
+                    <div id="legendHome" class="legendIcon col-4 col-md-2 home">
                         <h6>Home</h6>
-                        <div class="colorBlock m-auto home"></div>
                     </div>
-                    <div id="legendResided" class="legendIcon col-4 col-md-2">
+                    <div id="legendResided" class="legendIcon col-4 col-md-2 resided">
                         <h6>Lived In</h6>
-                        <div class="colorBlock m-auto resided"></div>
                     </div>
-                    <div id="legendVisited" class="legendIcon col-4 col-md-2">
+                    <div id="legendVisited" class="legendIcon col-4 col-md-2 visited">
                         <h6>Visited</h6>
-                        <div class="colorBlock m-auto visited"></div>
                     </div>
-                    <div id="legendNotVisited" class="legendIcon col-4 col-md-2">
+                    <div id="legendNotVisited" class="legendIcon col-4 col-md-2 notVisited">
                         <h6>Not Visited</h6>
-                        <div class="colorBlock m-auto notVisited"></div>
                     </div>
-                    <div id="legendWantVisit" class="legendIcon col-4 col-md-2">
+                    <div id="legendWantVisit" class="legendIcon col-4 col-md-2 wantToVisit">
                         <h6>Will Visit</h6>
-                        <div class="colorBlock m-auto wantToVisit"></div>
                     </div>
-                    <div id="legendWillNotVisit" class="legendIcon col-4 col-md-2">
+                    <div id="legendWillNotVisit" class="legendIcon col-4 col-md-2 willNotVisit">
                         <h6>Won't Visit</h6>
-                        <div class="colorBlock m-auto willNotVisit"></div>
                     </div>
                 </div>
             </div>
