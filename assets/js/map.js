@@ -230,10 +230,10 @@ $(document).ready(function() {
             chart(ndx1, 'chart1', 'value', allColors, '#allBarChart');
 
             // Chart 2
-            chart(ndx2, 'chart2', 'value', allColors, '#been-not-barChart');
+            chart(ndx2, 'chart2', 'value', beenNotColors, '#been-not-barChart');
 
             // Chart 3
-            chart(ndx3, 'chart3', 'value', allColors, '#want-not-barChart');
+            chart(ndx3, 'chart3', 'value', wantNotColors, '#want-not-barChart');
 
             dc.renderAll();
         }

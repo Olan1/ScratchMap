@@ -1,12 +1,10 @@
 # ScratchMap
 
-## Interactive Frontend Development Milestone Project
-
 This project is a digital scratchmap...
 
 ### Demo
 
-Click [here](https://olan1.github.io/scratchmap-project-2/) for a live demo.
+Click [here](https://olan1.github.io/ScratchMap/) for a live demo.
 
 ### UX
 
@@ -17,6 +15,9 @@ Click [here](https://olan1.github.io/scratchmap-project-2/) for a live demo.
 4. Bootstrap (4.3.1)
 5. jQuery
 6. jVectormap
+7. D3.js
+8. Crossfilter
+9. dc.js
 
 ### Features
 
