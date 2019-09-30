@@ -1,10 +1,14 @@
+/******************** Font ********************/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
 /******************** General ********************/
 
 body {
-    background-color: #fafaf9;
+    font-family: 'Lato', sans-serif;
 }
 
-.textGold{
+.textGold {
     color: rgb(197, 179, 88);
 }
 
@@ -14,6 +18,10 @@ hr {
 
 .col-12 {
     padding: 0;
+}
+
+.borderDark {
+    border: 1px solid rgba(52, 58, 64, 0.5);
 }
 
 /******************** Navbar ********************/
@@ -34,10 +42,6 @@ hr {
     cursor: pointer;
 }
 
-.jvectormap-container {
-    background-color: #fff;
-}
-
 /******************** Map Modal ********************/
 
 #myModal {
@@ -53,13 +57,15 @@ hr {
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgba(250, 250, 249, 0.1);
     border-radius: 1rem;
+    max-height: 100vh;
 }
 
 .mapModalButton {
+    color: #343a40;
     height: 60px;
     width: 200px;
     text-align: center;
-    border: 1px solid rgba(250, 250, 249, 0.5);
+    border: 1px solid rgba(52, 58, 64, 0.5);
     margin: 10px auto;
     border-radius: 1rem;
     font-weight: bold;
@@ -122,7 +128,7 @@ hr {
     background-color: #a7445b;
 }
 
-#resetBtn{
+#resetBtn {
     background-color: #f99907;
 }
 
@@ -147,14 +153,9 @@ hr {
     color: #343a40;
 }
 
-.colorBlock {
-    height: 20px;
-    width: 20px;
-    border: 1.5px solid rgba(250, 250, 249, 0.5);
-    border-radius: 0.25rem;
-    color: #343a40;
+.legendIcon h6 {
+    font-weight: bold;
 }
-
 
 /******************** Board ********************/
 
@@ -162,10 +163,12 @@ hr {
     min-height: 100px;
 }
 
-.board-bubble {
+.board-bubble,
+.board-header {
+    color: rgb(52, 58, 64);
     display: block;
     height: auto;
-    width: 120px;
+    width: 125px;
     border-radius: 0.25rem;
     text-align: center;
     text-transform: uppercase;
@@ -187,11 +190,3 @@ ul {
 /******************** Charts ********************/
 
 /******************** Footer ********************/
-
-#footer {
-    color: #fafaf9;
-}
-
-.fa-copyright {
-    padding-top: 7.5px;
-}

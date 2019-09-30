@@ -139,7 +139,7 @@ $(document).ready(function() {
 
         // Reset map and board function
         function reset() {
-            let values = Object.keys(colorData);    // Source: https://medium.com/backticks-tildes/iterating-through-javascript-objects-5-techniques-and-performance-tests-42b4a222a92b
+            let values = Object.keys(colorData); // Source: https://medium.com/backticks-tildes/iterating-through-javascript-objects-5-techniques-and-performance-tests-42b4a222a92b
             values.map(value => {
                 colorData[value] = 1;
             });
