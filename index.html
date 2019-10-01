@@ -15,7 +15,7 @@
     <script src="assets/js/jquery-jvectormap-2.0.3.min.js"></script>
     <script src="assets/js/jquery-jvectormap-world-mill.js"></script>
 
-    <!-- D3.js, Crossfilter.js & DC.js-->
+    <!-- D3.js, Crossfilter & dc.js-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" type="text/css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
@@ -47,7 +47,7 @@
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="closeModal">&times;</span>
-                        <h1 id="modalHeader"></h1>
+                        <span class="headerSpan"></span>
                         <button id="home" class="mapModalButton">
                             Home
                         </button>
@@ -73,7 +73,6 @@
                     </div>
                 </div>
                 <!-- /Map Modal -->
-
             </div>
 
             <!-- Legend -->
@@ -100,7 +99,6 @@
                 </div>
             </div>
             <!-- /Legend -->
-
         </div>
         <!-- /Map -->
 
@@ -108,46 +106,51 @@
         <div class="row mr-5 mt-5">
             <div id="board" class="col-12">
                 <div class="row no-gutters justify-content-center">
+                    <!--Home board-->
                     <div class="col-12 d-flex justify-content-center board" id="homeBoard">
                         <ul>
-                            <lh>
+                            <li class="listHeading">
                                 <h5 class="home board-header borderDark py-2 font-weight-bold">Home</h5>
-                            </lh>
-                            <hr>
+                                <hr>
+                            </li>
                         </ul>
                     </div>
                 </div>
+                <!-- Resided board -->
                 <div class="row no-gutters">
                     <div class="col-6 col-sm-3 d-flex justify-content-center board" id="livedInBoard">
                         <ul>
-                            <lh>
+                            <li class="listHeading">
                                 <h5 class="resided board-header borderDark py-2 font-weight-bold">Resided</h5>
-                            </lh>
-                            <hr>
+                                <hr>
+                            </li>
                         </ul>
                     </div>
+                    <!-- Visited board -->
                     <div class="col-6 col-sm-3 d-flex justify-content-center board" id="visitedBoard">
                         <ul>
-                            <lh>
+                            <li class="listHeading">
                                 <h5 class="visited board-header borderDark py-2 font-weight-bold">Visited</h5>
-                            </lh>
-                            <hr>
+                                <hr>
+                            </li>
                         </ul>
                     </div>
+                    <!-- Will visit board-->
                     <div class="col-6 col-sm-3 d-flex justify-content-center board" id="wantToVisitBoard">
                         <ul>
-                            <lh>
+                            <li class="listHeading">
                                 <h5 class="wantToVisit board-header borderDark py-2 font-weight-bold">Will Visit</h5>
-                            </lh>
-                            <hr>
+                                <hr>
+                            </li>
                         </ul>
                     </div>
+                    <!--Won't visit board-->
                     <div class="col-6 col-sm-3 d-flex justify-content-center board" id="willNotVisitBoard">
                         <ul>
-                            <lh>
+                            <li class="listHeading">
                                 <h5 class="willNotVisit board-header borderDark py-2 font-weight-bold">Won't Visit</h5>
-                            </lh>
-                            <hr>
+                                <hr>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -157,14 +160,17 @@
 
         <!-- Charts -->
         <div class="row no-gutters text-center textGold charts mt-5">
+            <!-- Chart 1 -->
             <div id="allBarChart" class="col-12 col-sm-6 col-md-4 text-center">
                 <h5>All Stats</h5>
             </div>
+            <!-- Chart 2 -->
             <div id="been-not-barChart" class="col-12 col-sm-6 col-md-4 text-center">
                 <h5>Been vs Not Been</h5>
             </div>
+            <!-- Chart 3 -->
             <div id="want-not-barChart" class="col-12 col-sm-6 col-md-4 text-center">
-                <h5>Been vs Will Visit</h5>
+                <h5>Visited vs Will Visit</h5>
             </div>
         </div>
         <!-- /Charts -->
@@ -181,8 +187,8 @@
         <!-- /Footer -->
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/map.js"></script>
 </body>
 

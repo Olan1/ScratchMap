@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
-    // Load JSON data
+    // Load data
     $.getJSON('assets/data/data.json', function(data) { // Source: http://jvectormap.com/examples/france-elections/
-        // Assign color values
+        // Assign data to variable
         var colorData = data.data.color;
 
         // Draw map
         map(colorData);
 
-        // Draw bar chart
+        // Draw bar charts
         charting(colorData);
 
         // Draw map function
@@ -17,6 +17,7 @@ $(document).ready(function() {
                 map: 'world_mill',
                 container: $('#map'),
                 backgroundColor: "#343a40",
+                zoomMax: 100,
                 series: {
                     regions: [{
                         values: colorData,
@@ -34,22 +35,19 @@ $(document).ready(function() {
 
         // Modal Function
         function mapModal(regionCode, regionName) { //Based on modal from https://www.w3schools.com/howto/howto_css_modals.asp
-            // Display modal
             $("#myModal").fadeIn(500);
 
-            $("#modalHeader").text(regionName);
+            $('.headerSpan').append().html(`<h1 id="modalHeader">${regionName}</h1>`);
 
-            // When the user clicks on <span> (x), close the modal
             $(".closeModal").click(function() {
                 closeModal();
             });
 
-            // When user clicks button, close modal
             $("#closeBtn").click(function() {
                 closeModal();
             });
 
-            // When the user clicks anywhere outside of the modal content, close it
+            // Close modal when click event occurs outside of modal content
             $(window).click(function(event) {
                 if ($(event.target).is('#myModal')) {
                     closeModal();
@@ -65,17 +63,18 @@ $(document).ready(function() {
             $("#myModal").fadeOut(500);
         }
 
-        // Modal button click events
+        // Modal button click events function
         function modalBtnClick(regionCode, regionName) {
             $('#home').off('click').on('click', function() {
                 Object.keys(colorData).forEach(function(item) { // Source: https://gomakethings.com/the-es6-way-to-loop-through-objects-with-vanilla-javascript/
-                    if (colorData[item] == 2.5) {
+                    if (colorData[item] == 2.5) { // Green
                         colorData[item] = 1; // Gold
                     }
                 });
                 boardBubble('#home', '#homeBoard', regionName, 'home', regionCode);
                 colorData[regionCode] = 2.5; // Green
                 redrawMap();
+                // Redraw charts with updated data
                 charting(colorData);
             });
 
@@ -115,6 +114,7 @@ $(document).ready(function() {
             });
 
             $('#resetBtn').off('click').on('click', function() {
+                // Reset data - Clears map, board and charts
                 reset();
                 redrawMap();
                 charting(colorData);
@@ -132,7 +132,7 @@ $(document).ready(function() {
         function boardBubble(targetBtn, targetBoard, regionName, colorClass, regionCode) {
 
             if (targetBtn == '#home') {
-                $(targetBoard).find("li").first().remove();
+                $(targetBoard).find("li:nth-child(2)").remove();
             }
             $("li").each(function() {
                 if ($(this).children("div").attr("id") == regionCode) {
@@ -140,26 +140,25 @@ $(document).ready(function() {
                 }
             });
 
-            var bubble = `<li><div class="board-bubble ${colorClass}" id="${regionCode}"><span class="bubble-text">${regionName}</span></div></li>`;
+            var bubble = `<li class="listItem"><div class="board-bubble ${colorClass}" id="${regionCode}"><span class="bubble-text">${regionName}</span></div></li>`;
 
             if (targetBtn != '#not-visited') {
                 $(targetBoard).children("ul").append(bubble);
             }
         }
 
-        // Reset map and board function
+        // Reset data function - Clears map, board and charts
         function reset() {
             let values = Object.keys(colorData); // Source: https://medium.com/backticks-tildes/iterating-through-javascript-objects-5-techniques-and-performance-tests-42b4a222a92b
             values.map(value => {
                 colorData[value] = 1;
             });
             colorData["UNDEFINED"] = 100;
-            $("li").remove();
+            $(".listItem").remove();
         }
 
         // Charting function
         function charting(colorData) {
-            let values = Object.keys(colorData);
             var home = 0;
             var notVisited = 0;
             var visited = 0;
@@ -167,6 +166,8 @@ $(document).ready(function() {
             var willVisit = 0;
             var willNotVisit = 0;
 
+            // Assign values to chart data
+            let values = Object.keys(colorData);
             var regionValues = values.map(value => {
                 if (colorData[value] == 100) {
                     var undef = 100;
@@ -189,6 +190,7 @@ $(document).ready(function() {
                 else if (colorData[value] == 55) {
                     willNotVisit += 1;
                 }
+                // Chart 1 data
                 var allCountryStatus = [
                     { "chart1": "Not Visited", "value": (notVisited / 195) * 100 },
                     { "chart1": "Resided", "value": (resided / 195) * 100 },
@@ -196,14 +198,14 @@ $(document).ready(function() {
                     { "chart1": "Will Visit", "value": (willVisit / 195) * 100 },
                     { "chart1": "Won't Visit", "value": (willNotVisit / 195) * 100 },
                 ];
-
+                // Chart 2 data
                 var beenNotStatus = [
                     { "chart2": "Been", "value": ((resided + visited + home) / 195) * 100 },
                     { "chart2": "Not Been", "value": ((notVisited + willVisit + willNotVisit) / 195) * 100 }
                 ];
-
+                //Chart 3 data
                 var wantNotStatus = [
-                    { "chart3": "Been", "value": ((resided + visited + home) / 195) * 100 },
+                    { "chart3": "Visited", "value": ((resided + visited + home) / 195) * 100 },
                     { "chart3": "Will Visit", "value": ((notVisited + willVisit - willNotVisit) / 195) * 100 }
                 ];
 
@@ -214,16 +216,17 @@ $(document).ready(function() {
             var ndx2 = crossfilter(regionValues[194][1]);
             var ndx3 = crossfilter(regionValues[194][2]);
 
-            var allColors = d3.scale.ordinal() /*Map domain values to range values*/
+            /*Map domain values to range values*/
+            var allColors = d3.scale.ordinal()
                 .domain(["Not Visited", "Resided", "Visited", "Will Visit", "Won't Visit"])
                 .range(["#c5b358", "#29c290", "#1fb0ea", "#707095", "#a7445b"]);
 
-            var beenNotColors = d3.scale.ordinal() /*Map domain values to range values*/
+            var beenNotColors = d3.scale.ordinal()
                 .domain(["Been", "Not Been"])
                 .range(["#1fb0ea", "#c5b358"]);
 
-            var wantNotColors = d3.scale.ordinal() /*Map domain values to range values*/
-                .domain(["Been", "Will Visit"])
+            var wantNotColors = d3.scale.ordinal()
+                .domain(["Visited", "Will Visit"])
                 .range(["#1fb0ea", "#707095"]);
 
             // Chart 1
@@ -242,6 +245,8 @@ $(document).ready(function() {
         function chart(ndx, chart, val, colors, targetDiv) {
             var options_dim = ndx.dimension(dc.pluck(chart));
             var status_dim = options_dim.group().reduceSum(dc.pluck(val));
+            // Display values to 1 decimal place
+            var numFormat = d3.format('0.1f');
 
             dc.barChart(targetDiv)
                 .width(350)
@@ -254,6 +259,9 @@ $(document).ready(function() {
                     return d.key;
                 })
                 .colors(colors)
+                .title(function(d) {
+                    return numFormat(d.value) + " % ± 0.5 %";
+                })
                 .x(d3.scale.ordinal())
                 .y(d3.scale.linear().domain([0, 100]))
                 .xUnits(dc.units.ordinal)
