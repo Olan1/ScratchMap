@@ -3,13 +3,22 @@ $(document).ready(function() {
     // Load data
     $.getJSON('assets/data/data.json', function(data) { // Source: http://jvectormap.com/examples/france-elections/
         // Assign data to variable
-        var colorData = data.data.color;
+        var colorData;
+        if (window.localStorage.getItem("localData")) {
+            colorData = JSON.parse(window.localStorage.getItem('localData'));
+        }
+        else {
+            colorData = data.data.color;
+        }
 
         // Draw map
         map(colorData);
 
         // Draw bar charts
         charting(colorData);
+
+        // Generate initial board bubbles (if any)
+        boardBubble(colorData);
 
         // Draw map function
         function map(data) {
@@ -71,46 +80,47 @@ $(document).ready(function() {
                         colorData[item] = 1; // Gold
                     }
                 });
-                boardBubble('#home', '#homeBoard', regionName, 'home', regionCode);
                 colorData[regionCode] = 2.5; // Green
                 redrawMap();
                 // Redraw charts with updated data
                 charting(colorData);
+                // Save colorData locally
+                saveData(colorData);
             });
 
             $('#resided').off('click').on('click', function() {
-                boardBubble('#resided', '#livedInBoard', regionName, 'resided', regionCode);
                 colorData[regionCode] = 10; // Turquoise
                 redrawMap();
                 charting(colorData);
+                saveData(colorData);
             });
 
             $('#visited').off('click').on('click', function() {
-                boardBubble('#visited', '#visitedBoard', regionName, 'visited', regionCode);
                 colorData[regionCode] = 18; // Blue
                 redrawMap();
                 charting(colorData);
+                saveData(colorData);
             });
 
             $('#not-visited').off('click').on('click', function() {
-                boardBubble('#not-visited', 'targetBoard', regionName, 'colorClass', regionCode);
                 colorData[regionCode] = 1; //Gold
                 redrawMap();
                 charting(colorData);
+                saveData(colorData);
             });
 
             $('#plan-to-visit').off('click').on('click', function() {
-                boardBubble('#plan-to-visit', '#wantToVisitBoard', regionName, 'wantToVisit', regionCode);
                 colorData[regionCode] = 36; // Purple
                 redrawMap();
                 charting(colorData);
+                saveData(colorData);
             });
 
             $('#will-not-visit').off('click').on('click', function() {
-                boardBubble('#will-not-visit', '#willNotVisitBoard', regionName, 'willNotVisit', regionCode);
                 colorData[regionCode] = 55; // Red
                 redrawMap();
                 charting(colorData);
+                saveData(colorData);
             });
 
             $('#resetBtn').off('click').on('click', function() {
@@ -118,6 +128,7 @@ $(document).ready(function() {
                 reset();
                 redrawMap();
                 charting(colorData);
+                saveData(colorData);
             });
         }
 
@@ -125,26 +136,31 @@ $(document).ready(function() {
         function redrawMap() {
             $("#map").vectorMap('get', 'mapObject').remove(); // Source: https://stackoverflow.com/questions/31868444/jvectormap-change-refresh-map-with-new-reference-map
             map(colorData);
+            boardBubble(colorData);
             closeModal();
         }
 
         // Add countries to board function
-        function boardBubble(targetBtn, targetBoard, regionName, colorClass, regionCode) {
-
-            if (targetBtn == '#home') {
-                $(targetBoard).find("li:nth-child(2)").remove();
-            }
-            $("li").each(function() {
-                if ($(this).children("div").attr("id") == regionCode) {
-                    $(this).remove();
+        async function boardBubble(data) {
+            $(".listItem").remove();
+            let values = Object.keys(data);
+            values.map(value => {
+                if (data[value] == 2.5) {
+                    $('#homeBoard').children("ul").append(`<li class="listItem"><div class="board-bubble home" id="${value}"><span class="bubble-text">${value}</span></div></li>`);
+                }
+                else if (data[value] == 10) {
+                    $('#livedInBoard').children("ul").append(`<li class="listItem"><div class="board-bubble resided" id="${value}"><span class="bubble-text">${value}</span></div></li>`);
+                }
+                else if (data[value] == 18) {
+                    $('#visitedBoard').children("ul").append(`<li class="listItem"><div class="board-bubble visited" id="${value}"><span class="bubble-text">${value}</span></div></li>`);
+                }
+                else if (data[value] == 36) {
+                    $('#wantToVisitBoard').children("ul").append(`<li class="listItem"><div class="board-bubble wantToVisit" id="${value}"><span class="bubble-text">${value}</span></div></li>`);
+                }
+                else if (data[value] == 55) {
+                    $('#willNotVisitBoard').children("ul").append(`<li class="listItem"><div class="board-bubble willNotVisit" id="${value}"><span class="bubble-text">${value}</span></div></li>`);
                 }
             });
-
-            var bubble = `<li class="listItem"><div class="board-bubble ${colorClass}" id="${regionCode}"><span class="bubble-text">${regionName}</span></div></li>`;
-
-            if (targetBtn != '#not-visited') {
-                $(targetBoard).children("ul").append(bubble);
-            }
         }
 
         // Reset data function - Clears map, board and charts
@@ -267,6 +283,16 @@ $(document).ready(function() {
                 .xUnits(dc.units.ordinal)
                 .yAxisLabel("%")
                 .yAxis().ticks(4);
+        }
+
+        // Save data to local storage function
+        function saveData(data) {
+            if (window.localStorage) {
+                window.localStorage.setItem(
+                    'localData',
+                    JSON.stringify(data)
+                );
+            }
         }
     });
 });
