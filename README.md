@@ -1,10 +1,10 @@
 # ScratchMap
 
 The idea for this project stemmed from my love of travel and a goal of mine to visit every country in the world.
-I own a physical scratch map, which is fun and has its charm, but lacks portability.
-It also makes it difficult to see how much of the world you have actually experienced at a quick glance thanks to the Mercator effect, and requires monotonous scraping with every country you return from.
+I own a physical scratch map, which is fun and has its charm but lacks portability.
+It also makes it difficult to see how much of the world you have experienced at a glance thanks to the Mercator effect and requires monotonous scraping with every country you return from.
 
-This project is for those who love the idea of a scratch map, but are too lazy to keep it up to date and accurate.
+This project is for those who love the idea of a scratch map but are too lazy to keep it up to date and accurate.
 
 For those who love travelling, whether it be for work, play, or both.
 
@@ -22,10 +22,10 @@ The following user cases were used to define the apps functionality (names have 
 > I will be travelling the globe for 18 months starting January. I want to keep a log of where I'm going, and where I've been.
 
 ###### Hannah:
-> It would be handy to be able to highlight the countries I dont want to visit, as well as the ones I do.
+> It would be handy to be able to highlight the countries I don't want to visit, as well as the ones I do.
 
 ###### Sean:
-> I'd like to be able to share my map, and view the maps of friends.
+> I'd like to be able to share my map and view the maps of friends.
 
 The functional requirements based on these cases are:
 - More map options than just been / not been (eg. want to visit, don't want to visit, etc.).
@@ -56,7 +56,7 @@ The functional requirements based on these cases are:
 ### Existing Features
 The map is fully interactive. Hovering over a country displays the country's name in a tooltip. Clicking a country prompts a modal. The modal displays the country clicked, and all options available. Each option highlights the region with a specified colour.
 
-These modal buttons also interact with the board and statistics sections. Once an option is selected, a bubble containing the selected country's name appears on the board. The bubble appears under the heading of the selected option, and in the colour related to that option.
+These modal buttons also interact with the board and statistics sections. Once an option is selected, a bubble containing the selected country's name appears on the board. The bubble appears under the heading of the selected option and in the colour related to that option.
 
 Each time an option is clicked, the data used by the graphs is updated and the graphs are redrawn.
 
@@ -79,7 +79,20 @@ Testing was carried out manually in multiple browsers (chrome, firefox, safari, 
 Below shows the testing structure used:
 ![Testing Workflow](https://raw.githubusercontent.com/Olan1/ScratchMap/master/assets/wireframes/testflow.png)
 
-Testing was carried out by myself and several friends, whom followed the above testing structure, each taking a continent. Once testing was completed, I asked them to try break the site. They failed.
+A country was selected. From the pop-up modal, the home option was selected. The map was observed for the correct colour change, the board was observed for the bubble appearing in the correct board with the correct contents and colour. The charts were observed for updating correctly.
+
+The same country was clicked and the next option was selected. The colour change was observed on the map. On the board, it was checked that the bubble had moved to the correct section, changed to the expected colour, and still contained the correct content.
+
+This was repeated on the same country for all modal options. The same country was then selected and the home option was clicked on the modal. Another country was then clicked and the home option was selected on the modal. The map was observed to check that only the most recently selected home country had a green fill. The other was observed to have a gold fill.
+
+On the board section, when multiple home countries were selected, it was observed that only one bubble appeared in green in the home section. This bubble contained the correct content, displaying the most recently selected home countries name.
+This was repeated for all countries.
+
+To test the reset map modal option, multiple countries were selected on the map with different modal options for each. The reset map modal option was clicked. The map was observed to ensure all countries had a gold fill. The board was observed to ensure no bubbles were displaying under each board heading. The charts were observed to display the correct info. This was repeated several times with different country and modal option selection combinations, including with every country selected.
+
+The pop-up modal was tested for closing after clicking the X icon, the close modal button, by clicking outside of the modal, and on click of every modal option.
+
+Testing was carried out by myself and several friends, who followed the above testing structure, each taking a single continent. Once testing was completed, I asked them to try to break the site. They failed.
 
 ## Deployment
 Github was used for version control.
@@ -95,7 +108,7 @@ The live site can be found [here](https://olan1.github.io/ScratchMap/).
 - data.json country Ids sourced from [jVectorMap](http://jvectormap.com/).
 - country-list.json sourced from [npm](https://www.npmjs.com/package/country-list).
 - All externally sourced code referenced in files.
-- Thankyou to everyone who helped with the inception of this project and with the endless monotonous testing.
+- Thank you to everyone who helped with the inception of this project and with the endless, monotonous testing.
 
 ### Media
 
