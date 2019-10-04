@@ -1,39 +1,106 @@
 # ScratchMap
 
-This project is a digital scratchmap...
+The idea for this project stemmed from my love of travel and a goal of mine to visit every country in the world.
+I own a physical scratch map, which is fun and has its charm, but lacks portability.
+It also makes it difficult to see how much of the world you have actually experienced at a quick glance thanks to the Mercator effect, and requires monotonous scraping with every country you return from.
 
-### Demo
+This project is for those who love the idea of a scratch map, but are too lazy to keep it up to date and accurate.
 
-Click [here](https://olan1.github.io/ScratchMap/) for a live demo.
+For those who love travelling, whether it be for work, play, or both.
 
-### UX
+For those who are overly competitive and want to show off to their family, friends, and people they don't even know.
 
-### Technologies
-1. HTML5
-2. CSS3
-3. JavaScript
-4. Bootstrap (4.3.1)
-5. jQuery
-6. jVectormap
-7. D3.js
-8. Crossfilter
-9. dc.js
+## Demo
 
-### Features
+Click [here](https://olan1.github.io/ScratchMap/) for a sneak peak...
 
-#### Features Left to Implement
+## UX
 
-### Testing
+The following user cases were used to define the apps functionality (names have been changed for privacy purposes):
+ 
+###### Colum:
+> I will be travelling the globe for 18 months starting January. I want to keep a log of where I'm going, and where I've been.
 
-### Deployment
+###### Hannah:
+> It would be handy to be able to highlight the countries I dont want to visit, as well as the ones I do.
+
+###### Sean:
+> I'd like to be able to share my map, and view the maps of friends.
+
+The functional requirements based on these cases are:
+- More map options than just been / not been (eg. want to visit, don't want to visit, etc.).
+- The ability to save your map data.
+- A log of your map selections.
+- Statistics on each map option.
+- Statistics to visualise your journey.
+- The ability to share your map with others, and to see their maps.
+
+### Wireframes:
+![Desktop Site Wireframe](https://raw.githubusercontent.com/Olan1/ScratchMap/master/assets/wireframes/home.html%20(desktop).png)
+
+![Mobile Site Wireframe](https://raw.githubusercontent.com/Olan1/ScratchMap/master/assets/wireframes/home.html%20(Mobile).png)
+
+## Technologies
+1. HTML5.
+2. CSS3.
+3. JavaScript.
+4. Bootstrap (4.3.1).
+5. jQuery.
+6. jVectorMap.
+7. D3.js.
+8. Crossfilter.
+9. dc.js.
+
+## Features
+
+### Existing Features
+The map is fully interactive. Hovering over a country displays the country's name in a tooltip. Clicking a country prompts a modal. The modal displays the country clicked, and all options available. Each option highlights the region with a specified colour.
+
+These modal buttons also interact with the board and statistics sections. Once an option is selected, a bubble containing the selected country's name appears on the board. The bubble appears under the heading of the selected option, and in the colour related to that option.
+
+Each time an option is clicked, the data used by the graphs is updated and the graphs are redrawn.
+
+### Features Left to Implement
+The ability for users to share maps is yet to be implemented. This would require users creating profiles that their map data could be saved to, as opposed to their device's local storage. This would a require backend framework.
+
+## Testing
+### Code Validation:
+The HTML code was validated using the [The W3C Markup Validation Service](https://validator.w3.org/).
+
+The CSS code was validated using the [The W3C CSS Validation Service - Jigsaw](https://jigsaw.w3.org/css-validator/).
+
+The JavaScript code was validated using the [JSHint](https://jshint.com/), [Code Beautify](https://codebeautify.org/jsvalidate), and [Esprima](https://esprima.org/demo/validate.html).
+
+The JSON data was validated using the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
+
+### UX Testing:
+Testing was carried out manually in multiple browsers (chrome, firefox, safari, and edge). Testing was also carried out on multiple screen sizes using google chrome developer tools.
+
+Below shows the testing structure used:
+![Testing Workflow](https://raw.githubusercontent.com/Olan1/ScratchMap/master/assets/wireframes/testflow.png)
+
+Testing was carried out by myself and several friends, whom followed the above testing structure, each taking a continent. Once testing was completed, I asked them to try break the site. They failed.
+
+## Deployment
+Github was used for version control.
+
 This site is hosted on GitHub. It is deployed directly by the master branch and will automatically update upon new commits to the master branch.
 
-### Credits
+The live site can be found [here](https://olan1.github.io/ScratchMap/).
 
-#### Content
+## Credits
 
-#### Media</h3>
+### Content
+- Map sourced from [jVectorMap](http://jvectormap.com/).
+- data.json country Ids sourced from [jVectorMap](http://jvectormap.com/).
+- country-list.json sourced from [npm](https://www.npmjs.com/package/country-list).
+- All externally sourced code referenced in files.
+- Thankyou to everyone who helped with the inception of this project and with the endless monotonous testing.
 
-#### Acknowledgements
+### Media
+
+- Map icon sourced from [Free Icons Library](https://icon-library.net/icon/png-map-icon-0.html).
+
+### Acknowledgements
 
 This site is for educational purposes.
