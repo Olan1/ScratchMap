@@ -12,7 +12,7 @@ For those who are overly competitive and want to show off to their family, frien
 
 ## Demo
 
-Click [here](https://olan1.github.io/ScratchMap/) for a sneak peak...
+Click [here](https://olan1.github.io/ScratchMap/) for a sneak peek...
 
 ## UX
 
@@ -65,13 +65,13 @@ The ability for users to share maps is yet to be implemented. This would require
 
 ## Testing
 ### Code Validation:
-The HTML code was validated using the [The W3C Markup Validation Service](https://validator.w3.org/).
+The HTML code was validated using [The W3C Markup Validation Service](https://validator.w3.org/).
 
-The CSS code was validated using the [The W3C CSS Validation Service - Jigsaw](https://jigsaw.w3.org/css-validator/).
+The CSS code was validated using [The W3C CSS Validation Service - Jigsaw](https://jigsaw.w3.org/css-validator/).
 
-The JavaScript code was validated using the [JSHint](https://jshint.com/), [Code Beautify](https://codebeautify.org/jsvalidate), and [Esprima](https://esprima.org/demo/validate.html).
+The JavaScript code was validated using [JSHint](https://jshint.com/), [Code Beautify](https://codebeautify.org/jsvalidate), and [Esprima](https://esprima.org/demo/validate.html).
 
-The JSON data was validated using the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
+The JSON data was validated using [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
 ### UX Testing:
 Testing was carried out manually in multiple browsers (chrome, firefox, safari, and edge). Testing was also carried out on multiple screen sizes using google chrome developer tools.
@@ -108,12 +108,12 @@ The live site can be found [here](https://olan1.github.io/ScratchMap/).
 - data.json country Ids sourced from [jVectorMap](http://jvectormap.com/).
 - country-list.json sourced from [npm](https://www.npmjs.com/package/country-list).
 - All externally sourced code referenced in files.
-- Thank you to everyone who helped with the inception of this project and with the endless, monotonous testing.
 
 ### Media
 
 - Map icon sourced from [Free Icons Library](https://icon-library.net/icon/png-map-icon-0.html).
 
 ### Acknowledgements
+- Thank you to everyone who helped with the inception of this project and with the endless, monotonous testing.
 
 This site is for educational purposes.
