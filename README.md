@@ -94,6 +94,8 @@ The pop-up modal was tested for closing after clicking the X icon, the close mod
 
 Testing was carried out by myself and several friends, who followed the above testing structure, each taking a single continent. Once testing was completed, I asked them to try to break the site. They failed.
 
+An issue found during testing was the map zoom and render location before and after clicking. If a region was selected while zoomed in, the map renders a new map fully zoomed out. I have been unsuccessful in fixing this issue and have unfortunately run out of time allocated for this project.
+
 ## Deployment
 Github was used for version control.
 
