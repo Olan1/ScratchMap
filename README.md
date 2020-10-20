@@ -1,5 +1,5 @@
 # ScratchMap
-The aim of this project is to allow users to tracks and monitor the countries they have visited visually by creating a digital version of a scratchmap.
+The aim of this project is to allow users to track and monitor the countries they have visited visually by creating a digital version of a scratchmap.
 
 ## Demo
 
