@@ -1,14 +1,5 @@
 # ScratchMap
-
-The idea for this project stemmed from my love of travel and a goal of mine to visit every country in the world.
-I own a physical scratch map, which is fun and has its charm but lacks portability.
-It also makes it difficult to see how much of the world you have experienced at a glance thanks to the Mercator effect and requires monotonous scraping with every country you return from.
-
-This project is for those who love the idea of a scratch map but are too lazy to keep it up to date and accurate.
-
-For those who love travelling, whether it be for work, play, or both.
-
-For those who are overly competitive and want to show off to their family, friends, and people they don't even know.
+The aim of this project is to allow users to tracks and monitor the countries they have visited visually by creating a digital version of a scratchmap.
 
 ## Demo
 
