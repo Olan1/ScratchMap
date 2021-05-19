@@ -7,18 +7,7 @@ Click [here](https://olan1.github.io/ScratchMap/) for a sneak peek...
 
 ## UX
 
-The following user cases were used to define the apps functionality (names have been changed for privacy purposes):
- 
-###### Colum:
-> I will be travelling the globe for 18 months starting January. I want to keep a log of where I'm going, and where I've been.
-
-###### Hannah:
-> It would be handy to be able to highlight the countries I don't want to visit, as well as the ones I do.
-
-###### Sean:
-> I'd like to be able to share my map and view the maps of friends.
-
-The functional requirements based on these cases are:
+The functional requirements are:
 - More map options than just been / not been (eg. want to visit, don't want to visit, etc.).
 - The ability to save your map data.
 - A log of your map selections.
@@ -105,8 +94,5 @@ The live site can be found [here](https://olan1.github.io/ScratchMap/).
 ### Media
 
 - Map icon sourced from [Free Icons Library](https://icon-library.net/icon/png-map-icon-0.html).
-
-### Acknowledgements
-- Thank you to everyone who helped with the inception of this project and with the endless, monotonous testing.
 
 This site is for educational purposes.
